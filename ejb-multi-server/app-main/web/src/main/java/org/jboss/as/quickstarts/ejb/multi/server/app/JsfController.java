@@ -18,6 +18,7 @@ package org.jboss.as.quickstarts.ejb.multi.server.app;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
@@ -46,6 +47,9 @@ public class JsfController {
    */
   @Resource(mappedName = "ejb:appmain/ejb/MainEjbClient34AppBean!org.jboss.as.quickstarts.ejb.multi.server.app.MainApp")
   MainApp mainEjbClient34App;
+
+  @EJB(beanName = "MainApp", beanInterface = MainApp.class, mappedName = "ejb:appmain/ejb/MainAppBean!org.jboss.as.quickstarts.ejb.multi.server.app.MainApp")
+  MainApp myMainApp;
 
   /**
    * Injection with @EJB is not possible for foreign application in a different server. For this we can use @Resource.
