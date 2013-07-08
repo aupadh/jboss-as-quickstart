@@ -205,12 +205,12 @@ public class MainEjbClient34AppBean implements MainApp {
     StringBuffer result = new StringBuffer(" appTwo loop(4 time A-B expected){");
     for (int i = 0; i < 4; i++) {
       // invoke on the bean
-      String appResult = beanA.invokeSecured(text);
+      String appResult = beanA.invoke(text);
       if (i > 0) {
         result.append(", ");
       }
       result.append(appResult);
-      appResult = beanB.invokeSecured(text);
+      appResult = beanB.invoke(text);
       result.append(", ");
       result.append(appResult);
     }
